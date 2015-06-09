@@ -1,0 +1,38 @@
+body{
+    background:  url(../image/12T58PICZzr.jpg);
+     opacity: 0.8;
+     }
+th,td{
+    text-align: center;
+    border: 2px  #E0E0E0 solid;
+    background-color: #DDEEFF;
+}
+table tbody td:hover{
+    background:#4DB8FF;
+    cursor: pointer;
+}
+h1{
+    font-size:2em; 
+    letter-spacing: .4em;
+    line-height: 18px; 
+    text-align: left; 
+    color: 	#1A1A1A;
+    text-align: center
+    }
+.evenrow{
+    background-color: #E0E0E0;
+}
+.subtitle{
+    font-weight: bold;
+    clear: both;
+}
+#t{
+    position: absolute;
+    top: 150px;
+    left: 60px;
+}
+#h1{
+    position: absolute;
+    top: 16px;
+    left: 265px;
+}

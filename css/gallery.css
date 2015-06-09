@@ -1,0 +1,44 @@
+
+h1{
+    text-align: center;
+    transform: skew(-5deg,-5deg);
+    -moz-transform: skew(-5deg,-5deg); 
+    -webkit-transform: skew(-5deg,-5deg);
+    }
+img:hover{
+    transform: scale(1.6,1.6);
+    -webkit-transform: scale(1.6, 1.6);
+    -moz-transform: scale(1.6, 1.6);
+    cursor: url(title.jpg), auto;
+    border: 3px double white;
+}
+.img{
+    margin: 100px;
+}
+#button{
+    display: block;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+#button button{
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+#slide{
+    display: none;
+}
+#narrive{
+    display: none;
+    position: absolute;
+    left: 200px;
+}
+.bt{
+	float:none;
+	}
+#show{
+	margin-left: 80px;
+}

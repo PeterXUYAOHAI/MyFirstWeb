@@ -1,0 +1,44 @@
+*{  border: 0px black solid;
+    overflow: auto;
+    cursor: none;
+    }
+div{
+    padding: 0;
+    margin: 0;
+}
+h1{
+    text-align: center
+}
+.left{
+    float: left
+}
+.right{
+    float: right
+}
+#im1{
+   float: left;
+   width:29%;
+}
+#im1:hover{
+    transform: scale(1.4,1.4);
+    -webkit-transform: scale(1.4, 1.4);
+    -moz-transform: scale(1.4, 1.4); border: dashed white
+}
+#im2:hover{
+    transform: scale(1.4,1.4);
+    -webkit-transform: scale(1.4, 1.4);
+    -moz-transform: scale(1.4,1.4);
+    
+}
+#text1{
+    width:70%
+    }
+#text2{
+    float: left;
+    width:70%;
+    }
+#im2{
+   width: 30%
+}
+
+   

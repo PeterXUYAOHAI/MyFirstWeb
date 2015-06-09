@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Comments</title>
+        <meta charset="UTF-8" />
+        
+        <link rel="stylesheet" href="../css/comment.css" type="text/css" media="all"/>
+         <script type="text/javascript">
+            
+                window.parent.document.querySelector("#s1").src="http://courses.cs.cityu.edu.hk/cs2204/casablanca.mp4";
+                window.parent.document.querySelector("#s2").src="http://courses.cs.cityu.edu.hk/cs2204/casablanca.ogg";
+                window.parent.document.querySelector("#video").load();
+                
+        </script>
+    </head>
+   
+    <body onload="init();">
+        <h1>COMMENTS</h1>
+        <div id="form">
+        <form method="get" onsubmit="return savefeedback()">
+            <fieldset>
+                <label>Member No.</label>
+                <input type="number" min="1" max="500" name="number"/>
+                <br>
+                <input type="checkbox" name="Netname" value="show">
+                <label>Show Net Name </label>
+                <br>
+                <input type="checkbox" name="Realname" value="show">
+                <label>Show Real Name</label>
+                <br>
+                <label>Comment:</label>
+                <br>
+                <textarea name="Comment" cols="35" rows="5"></textarea>
+            </fieldset>
+            
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+        </form>
+        </div>
+        <div id="right">
+            <h2>User feedback</h2>
+            <div id="feedback"></div>
+            <button onclick="clearF()">Clear Feedbcak</button>
+        </div>
+        <script>
+            
+            function init() {
+            loadFeedback();
+           
+            }
+
+            var feedback="";
+            var eachfeedback;
+            var storage=window.localStorage;
+            
+            function clearF() {
+                storage.clear();
+                feedback="";
+                document.getElementById("feedback").innerHTML="No feed back";
+            }
+            
+            function savefeedback() {
+                feedback=feedback + "%" + "Member No." + "," + document.querySelector("input[type='number']").value + "&";
+                feedback=feedback + "Show :" ;
+                vshow=document.querySelectorAll("input[type='checkbox']");
+                if (vshow[0].checked)
+                    feedback=feedback + "Net Name "  ;
+                if (vshow[1].checked) 
+                    feedback=feedback + "Real Name " ;  
+                feedback=feedback+ "&" + "Comment ," ;
+                feedback=feedback+ document.querySelector("textarea").value;
+                storage.removeItem("feedback");
+                storage.setItem("feedback" , feedback);
+                loadFeedback();
+                return false;
+            }
+            function loadFeedback(){
+                var localhtml="";
+                feedback=storage.getItem("feedback");
+                
+                if (feedback!=null) {
+                    eachfeedback=feedback.split("%");
+                     
+                    for (i=1;i<eachfeedback.length;i++) {
+                         
+                        items=eachfeedback[i].split("&");
+                        
+                        localhtml=localhtml + "Member No:" + items[0].split(",")[1] + "</br>" + "Show :" +items[1] + "</br>" + "Comment: " + items[2].split(",")[1] + "<hr>";
+                            }
+                        document.getElementById("feedback").innerHTML= localhtml;
+                    //code
+                }
+            
+            }
+        </script>
+</body>
+</html>

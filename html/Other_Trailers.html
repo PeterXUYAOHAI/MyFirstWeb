@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Other Trailers</title>
+    <link rel="stylesheet" href="../css/Other.css" type="text/css" media="all"/>
+    
+</head>
+
+<body>
+    <div>
+        <div id="d1">
+            <img id="i1" src="../image/cake_making.jpg" alt="cake_making" onclick="changTra(0)" > 
+        </div>
+        <div id="d2">
+            <img id="i2" src="../image/wildlife.jpg" alt="wildlife" onclick="changTra(1)" >
+        </div>
+    </div>
+<script type="text/javascript">
+    function changTra(idx) {
+        
+        if (idx==0) {    
+           window.parent.document.querySelector("#s1").src="http://courses.cs.cityu.edu.hk/cs2204/cakemaking.mp4";
+           window.parent.document.querySelector("#s2").src="http://courses.cs.cityu.edu.hk/cs2204/cakemaking.ogg";
+        }
+        if (idx==1) {
+           window.parent.document.querySelector("#s1").src="http://courses.cs.cityu.edu.hk/cs2204/wildlife.mp4";
+           window.parent.document.querySelector("#s2").src="http://courses.cs.cityu.edu.hk/cs2204/wildlife.ogg"; 
+        }
+        window.parent.document.querySelector("#video").load();
+    }
+   
+</script>
+</body>
+</html>

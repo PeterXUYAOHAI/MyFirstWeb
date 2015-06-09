@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Gallery</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="../css/gallery.css" type="text/css" media="all"/>
+         <script type="text/javascript">
+            
+                window.parent.document.querySelector("#s1").src="http://courses.cs.cityu.edu.hk/cs2204/casablanca.mp4";
+                window.parent.document.querySelector("#s2").src="http://courses.cs.cityu.edu.hk/cs2204/casablanca.ogg";
+                window.parent.document.querySelector("#video").load();
+        </script>
+    </head>
+<body>
+    <h1>GALLERY</h1>
+        <div id="slide">
+        <div class="img">
+            <img id="show" src="../image/photo1.jpg" alt="Image">
+            <div>
+            <button class="bt" onClick=changSpead2(0)>Slower</button>
+            <button class="bt" onClick=changSpead(1)>1XSpeed</button>
+            <button class="bt" onClick=changSpead(2)>2XSpeed</button>
+            <button class="bt" onClick=changSpead(5)>5xSpeed</button>
+            <button class="bt" onClick=changSpead(10)>10XSpeed</button>
+            <button class="bt" onClick=changSpead2(1)>Faster</button>
+            <button class="bt" onClick=goBack()>Back</button> 
+            </div>
+            </div>
+        </div>
+        <div id="narrive">
+            <img id="narr" src="../image/photo1.jpg" alt="Image">
+            <div>
+             <button class="bt" onClick=goBack()>Back</button>
+            </div>
+        </div>
+        
+        <div id="button">
+            <button onclick=showSlide()>Slide show</button>
+            <button onclick=showNarrive()>Narrative slide show</button>
+        </div>
+        <script>
+            
+            var slide=document.querySelector("#slide");
+            var narrive=document.querySelector("#narrive");
+            var button=document.querySelector("#button");
+            function showSlide() {
+              button.style.display="none";
+              slide.style.display="block";//code
+            }
+            function showNarrive() {
+                button.style.display="none";
+                narrive.style.display="block";
+		playAudio();
+            }
+            
+	    function goBack(){
+                button.style.display="block";
+                slide.style.display="none";
+		narrive.style.display="none";
+		audio[sq].pause();
+		clearTimeout(myvar);
+		}
+	    var Images = new Array("../image/photo1.jpg","../image/photo2.jpg","../image/photo3.jpg");
+	    var thisAd = 0;
+	    var n=5;
+			
+	    function slideShow(){
+		thisAd++;
+		if (thisAd == Images.length) {
+	   	    thisAd = 0;
+		}
+		document.getElementById("show").src = Images[thisAd];
+		setTimeout("slideShow()", n * 1000);
+		}
+			
+            window.onload=slideShow;
+			
+			function changSpead(idx){
+				n=5/idx;
+				}
+                        function changSpead2(idE){
+				if (idE==0) {
+                                    n=n*2;
+                                    }
+                                if (idE==1) {
+                                    n=n/2;
+                                    }
+                                    }
+                                    
+			var audio= new Array;	
+			var audioFile= new Array("../audio/a1.mp3","../audio/a2.mp3","../audio/a3.mp3");
+			for (i=0; i<audioFile.length; i++) {
+	  			audio[i]= new Audio(audioFile[i]);
+	 			audio[i].load();
+				}
+				var sq=0;
+			function playAudio(){
+				sq++;
+				if (sq == audioFile.length) {
+	   			 sq = 0;
+				}
+				document.getElementById("narr").src = Images[sq];
+				audio[sq].play();
+				myvar=setTimeout("playAudio()", (audio[sq].duration+2)*1000);
+				
+				
+				}
+			
+			
+            </script>
+    </body>
+</html>

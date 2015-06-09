@@ -1,0 +1,12 @@
+ h1{
+        letter-spacing: .2em;
+        font-weight: bold;
+        }
+#form{
+    float: left;
+    
+}
+#right{
+    position: absolute;
+    left: 350px;
+}
